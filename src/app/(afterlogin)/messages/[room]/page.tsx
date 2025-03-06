@@ -6,7 +6,6 @@ import cx from 'classnames'
 import relativeTime from "dayjs/plugin/relativeTime";
 import 'dayjs/locale/ko';
 import dayjs from "dayjs";
-
 dayjs.locale('ko');
 dayjs.extend(relativeTime)
 
@@ -28,7 +27,8 @@ export default function ChatRoom() {
         <div><h2>{user.nickname}</h2></div>
       </div>
       <Link href={user.nickname} className={style.userInfo}>
-        <img src={user.image} alt={user.id} />
+          {/* 외부 도메인 문제로 인한 img tag  */}
+        <img src={user.image} alt={user.id} width={64} height={64} />
         <div><b>{user.nickname}</b></div>
         <div>@{user.id}</div>
       </Link>
