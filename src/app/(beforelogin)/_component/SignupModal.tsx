@@ -2,7 +2,7 @@
 
 import React from "react";
 import style from "./signup.module.css";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ChangeEventHandler, FormEventHandler, useState } from "react";
 import BackButton from "./BackButton";
 
@@ -33,7 +33,7 @@ export default function SignupModal() {
 
     const onSubmit: FormEventHandler = e => {
         e.preventDefault();
-        fetch(`${process.env.API_URL}/api/users`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, {
             method: "post",
             body: JSON.stringify({
                 id,
@@ -52,7 +52,6 @@ export default function SignupModal() {
             .catch(err => {
                 console.error(err);
             });
-        redirect("/home");
     };
 
     return (

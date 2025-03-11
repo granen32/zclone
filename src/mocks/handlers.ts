@@ -36,4 +36,12 @@ export const handlers = [
             },
         );
     }),
+    http.post(`${baseUrl}/api/users`, () => {
+        console.log("회원가입 테스트");
+        return HttpResponse.text(JSON.stringify("ok"), {
+            headers: {
+                "Set-Cookie": "connect.sid=msw-cookie;HttpOnly;Path=/",
+            },
+        });
+    }),
 ];
