@@ -6,9 +6,10 @@ const User = [
     { id: "jack", name: "Jack Dorsey", image: "/5Udwvqim.jpg" },
     { id: "satyanadella", name: "Satya Nadella", image: faker.image.avatar() },
 ];
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const handlers = [
-    http.post("/api/login", () => {
+    http.post(`${baseUrl}/api/login`, () => {
         console.log("로그인 테스트");
         return HttpResponse.json(User[1], {
             headers: {
@@ -20,7 +21,7 @@ export const handlers = [
             status: 200,
         });
     }),
-    http.post("/api/logout", () => {
+    http.post(`${baseUrl}/api/logout`, () => {
         console.log("로그아웃 테스트");
         return HttpResponse.json(
             {},
