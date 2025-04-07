@@ -3,6 +3,7 @@ import js from "@eslint/js";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import reactPlugin from "eslint-plugin-react";
+import nextPlugin from "@next/eslint-plugin-next";
 
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -20,11 +21,15 @@ export default [
       }
     },
     plugins: {
-      "react": reactPlugin
+      "react": reactPlugin,
+      "next": nextPlugin
     },
     settings: {
       react: {
         version: "detect"
+      },
+      next: {
+        rootDir: "."
       },
       jsx: true
     },
@@ -34,7 +39,9 @@ export default [
       "no-console": "warn",
       "no-undef": "error",
       "semi": ["error", "always"],
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules
     }
   },
   // TypeScript 파일을 위한 설정
@@ -56,11 +63,15 @@ export default [
     },
     plugins: {
       "@typescript-eslint": tseslint,
-      "react": reactPlugin
+      "react": reactPlugin,
+      "next": nextPlugin
     },
     settings: {
       react: {
         version: "detect"
+      },
+      next: {
+        rootDir: "."
       },
       jsx: true
     },
@@ -75,7 +86,9 @@ export default [
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/no-var-requires": "off",
-      "@typescript-eslint/no-require-imports": "off"
+      "@typescript-eslint/no-require-imports": "off",
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules
     }
   }
 ];
