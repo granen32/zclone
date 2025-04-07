@@ -1,6 +1,6 @@
 import Link from "next/link";
-import style from './trend.module.css';
-import {Hashtag} from "@/model/Hashtag";
+import style from "./trend.module.css";
+import { Hashtag } from "@/model/Hashtag";
 
 type Prop = { trend: Hashtag };
 export default function Trend({ trend }: Prop) {
@@ -10,5 +10,5 @@ export default function Trend({ trend }: Prop) {
       <div className={style.title}>{trend.title}</div>
       <div className={style.count}>{trend.count.toLocaleString()} posts</div>
     </Link>
-  )
+  );
 }

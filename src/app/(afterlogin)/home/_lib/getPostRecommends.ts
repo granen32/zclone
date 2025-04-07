@@ -1,8 +1,8 @@
 type Props = { pageParam?: number };
-export async function getPostRecommends({pageParam}: Props) {
+export async function getPostRecommends({ pageParam }: Props) {
   const res = await fetch(`http://localhost:9090/api/postRecommends?cursor=${pageParam}`, {
     next: {
-      tags: ['posts', 'recommends'],
+      tags: ["posts", "recommends"],
     },
   });
   // The return value is *not* serialized
@@ -10,8 +10,8 @@ export async function getPostRecommends({pageParam}: Props) {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error("Failed to fetch data");
   }
 
-  return res.json()
+  return res.json();
 }

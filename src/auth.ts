@@ -1,6 +1,6 @@
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 
 export const {
   handlers: { GET, POST },
@@ -9,8 +9,8 @@ export const {
 } = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/i/flow/login',
-    newUser: '/i/flow/signup',
+    signIn: "/i/flow/login",
+    newUser: "/i/flow/signup",
   },
   providers: [
     CredentialsProvider({
@@ -24,21 +24,21 @@ export const {
             id: credentials.username,
             password: credentials.password,
           }),
-        })
+        });
 
         if (!authResponse.ok) {
-          return null
+          return null;
         }
 
-        const user = await authResponse.json()
-        console.log('user', user);
+        const user = await authResponse.json();
+        console.log("user", user);
         return {
           email: user.id,
           name: user.nickname,
           image: user.image,
           ...user,
-        }
+        };
       },
     }),
-  ]
+  ],
 });
