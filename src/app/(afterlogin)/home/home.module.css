@@ -14,8 +14,22 @@
         width: 600px;
     }
 }
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     .main {
         border-color: rgb(47, 51, 54);
     }
-} */
+}
+@keyframes rotate {
+    0% {
+        rotate: 0;
+    }
+    50% {
+        rotate: 180deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+.loader {
+    animation: rotate 5s infinite;
+}
