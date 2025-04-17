@@ -1,10 +1,10 @@
 "use client";
 
-import style from "@/app/(afterLogin)/[username]/profile.module.css";
-import BackButton from "@/app/(afterLogin)/_component/BackButton";
+import style from "@/app/(afterlogin)/[username]/profile.module.css";
+import BackButton from "@/app/(afterlogin)/_component/BackButton";
 import { useQuery } from "@tanstack/react-query";
 import { User } from "@/model/User";
-import { getUser } from "@/app/(afterLogin)/[username]/_lib/getUser";
+import { getUser } from "@/app/(afterlogin)/[username]/_lib/getUser";
 
 type Props = {
   username: string;

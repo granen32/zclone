@@ -2,6 +2,10 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextResponse } from "next/server";
 
+/**
+ * 로그인 처리
+ * @returns 로그인 상태
+ */
 export const {
   handlers: { GET, POST },
   auth,
